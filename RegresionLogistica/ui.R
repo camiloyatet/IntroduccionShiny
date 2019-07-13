@@ -9,21 +9,21 @@ shinyUI(pageWithSidebar(
   
   sidebarPanel(
     
-    div(p("Encuentro los valores de la pendiente y el intercepto que maximice la verosimilitud")),
+    div(p("Encuentre los valores de los parámetros de la regresi+on que maximice la verosimilitud")),
     div(
       
       sliderInput("intercept",
-                  strong("Intercepto"),
+                  strong("Betta_0"),
                   min=-3, max=3, step=.25,
                   value=sample(seq(-3, 3, .25), 1), ticks=FALSE),
       br(),
       sliderInput("slope", 
-                  strong("Pendiente"),
+                  strong("Betta_1"),
                   min=-3, max=3, step=.25, 
                   value=sample(seq(-2, 2, .25), 1), ticks=FALSE),
       br(),
       checkboxInput("logit",
-                    strong("Grafica con Funcion de enlace logit"),
+                    strong("Gráfica con función de enlace logit"),
                     value=FALSE),
       br(),
       checkboxInput("summary",
@@ -37,7 +37,7 @@ shinyUI(pageWithSidebar(
     plotOutput("reg.plot", width=fig.width, height=fig.height),
     plotOutput("like.plot", width=fig.width, height=fig.height / 3),
     div(class="span7", conditionalPanel("input.summary == true",
-                                        p(strong("GLM Summary")),
+                                        p(strong("Resumen GLM")),
                                         verbatimTextOutput("summary")))
   )
   
