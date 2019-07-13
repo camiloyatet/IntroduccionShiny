@@ -2,10 +2,7 @@ shinyServer(function(input, output) {
   
   # Construccion del conjunto de datos aleatorio ----
   draw.sample <- reactive({
-    # This gets called whenever the app is reloaded
-    
-  # Construccon de la variable de respuesta
-    n.obs = 30
+    n.obs = 50
     true.a <- .75
     true.b <- 1.25
     
